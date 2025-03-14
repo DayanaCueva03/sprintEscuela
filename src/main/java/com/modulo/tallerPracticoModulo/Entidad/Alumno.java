@@ -1,18 +1,18 @@
 package com.modulo.tallerPracticoModulo.Entidad;
 
 import jakarta.persistence.*;
-
 import java.util.Set;
 
-
 @Entity
+@Table(name = "alumno")
 public class Alumno {
-        @Id
-        @GeneratedValue(strategy = GenerationType.IDENTITY)
-        private Long id;
-        private String nombre;
-        private String apellido;
-        private String email;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String nombre;
+    private String apellido;
+    private String email;
 
     @ManyToMany
     @JoinTable(
@@ -22,13 +22,6 @@ public class Alumno {
     )
     private Set<Curso> cursos;
 
-    public Set<Curso> getCursos() {
-        return cursos;
-    }
-
-    public void setCursos(Set<Curso> cursos) {
-        this.cursos = cursos;
-    }
 
     public Long getId() {
         return id;
@@ -46,6 +39,14 @@ public class Alumno {
         this.nombre = nombre;
     }
 
+    public String getApellido() {
+        return apellido;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
+
     public String getEmail() {
         return email;
     }
@@ -54,11 +55,11 @@ public class Alumno {
         this.email = email;
     }
 
-    public String getApellido() {
-        return apellido;
+    public Set<Curso> getCursos() {
+        return cursos;
     }
 
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
+    public void setCursos(Set<Curso> cursos) {
+        this.cursos = cursos;
     }
 }

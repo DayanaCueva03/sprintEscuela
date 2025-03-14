@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Asignar Cursos a Alumno</title>
+</head>
+<body style="font-family: Arial, sans-serif; background: #f4f4f4; margin: 0; padding: 20px; text-align: center;">
+<h2 style="color: #333; font-size: 28px; margin-bottom: 20px;">Asignar Cursos a Alumno</h2>
+
+<div style="display: flex; justify-content: center;">
+    <form th:action="@{/alumnos/{id}/asignar-cursos(id=${alumno.id})}" method="post"
+          style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); width: 80%; max-width: 800px;">
+        <!-- Nombre del alumno -->
+        <div style="margin-bottom: 15px;">
+            <label style="font-size: 18px; color: #333;">Alumno:</label><br/>
+            <strong th:text="${alumno.nombre + ' ' + alumno.apellido}"></strong>
+        </div>
+
+        <!-- Lista de cursos disponibles -->
+        <div style="margin-bottom: 15px;">
+            <label style="font-size: 18px; color: #333;">Selecciona los cursos:</label><br/>
+            <div th:each="curso : ${cursosDisponibles}" style="margin-bottom: 10px;">
+                <input type="checkbox" th:name="cursos" th:value="${curso.id}"
+                       th:checked="${alumno.cursos.contains(curso)}" />
+                <span th:text="${curso.nombre}"></span>
+            </div>
+        </div>
+
+        <!-- Botón para guardar cambios -->
+        <button type="submit" style="display: inline-block; padding: 10px 20px; background: #28a745; color: white; font-size: 16px; border: none; border-radius: 5px; cursor: pointer; transition: background 0.3s;">
+            Guardar Cambios
+        </button>
+    </form>
+</div>
+</body>
+</html>

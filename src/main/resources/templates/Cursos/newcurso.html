@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Agregar Nuevo Curso</title>
+</head>
+<body style="font-family: Arial, sans-serif; background: #f4f4f4; margin: 0; padding: 20px; text-align: center;">
+<h2 style="color: #333; font-size: 28px; margin-bottom: 20px;">Agregar Nuevo Curso</h2>
+
+<div style="display: flex; justify-content: center;">
+  <form th:action="@{/cursos/save}" method="post" th:object="${curso}" style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); width: 80%; max-width: 800px;">
+    <!-- Nombre del curso -->
+    <div style="margin-bottom: 15px;">
+      <label for="nombre" style="font-size: 18px; color: #333;">Nombre del Curso:</label><br/>
+      <input type="text" id="nombre" name="nombre" th:field="*{nombre}"
+             style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px; font-size: 16px;" required />
+    </div>
+
+    <!-- Descripción del curso -->
+    <div style="margin-bottom: 15px;">
+      <label for="descripcion" style="font-size: 18px; color: #333;">Descripción:</label><br/>
+      <textarea id="descripcion" name="descripcion" th:field="*{descripcion}"
+                style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px; font-size: 16px; resize: vertical;" rows="5" required></textarea>
+    </div>
+
+    <!-- Botón para guardar -->
+    <button type="submit" style="display: inline-block; padding: 10px 20px; background: #28a745; color: white; font-size: 16px; border: none; border-radius: 5px; cursor: pointer; transition: background 0.3s;">
+      Guardar Curso
+    </button>
+  </form>
+</div>
+</body>
+</html>

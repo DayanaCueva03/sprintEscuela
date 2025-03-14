@@ -39,6 +39,7 @@ public class AlumnoController {
         return "redirect:/alumnos";
     }
 
+
     @GetMapping("/edit/{id}")
     public String editAlumno(@PathVariable("id") Long id, Model model) {
         model.addAttribute("alumno", alumnoService.getAlumnoById(id));
@@ -64,6 +65,9 @@ public class AlumnoController {
     @GetMapping("/alumnos/{id}/asignar-cursos")
     public String asignarCursos(@PathVariable("id") Long id, Model model) {
         Alumno alumno = alumnoService.getAlumnoById(id);
+        if (alumno == null) {
+            return "redirect:/alumnos?error=notfound";
+        }
         List<Curso> cursosDisponibles = cursoService.getAllCursos();
         model.addAttribute("alumno", alumno);
         model.addAttribute("cursosDisponibles", cursosDisponibles);
@@ -73,6 +77,9 @@ public class AlumnoController {
     @PostMapping("/alumnos/{id}/asignar-cursos")
     public String guardarCursosAsignados(@PathVariable("id") Long id, @RequestParam("cursos") Set<Long> cursoIds) {
         Alumno alumno = alumnoService.getAlumnoById(id);
+        if (alumno == null) {
+            return "redirect:/alumnos?error=notfound";
+        }
         Set<Curso> cursos = cursoIds.stream()
                 .map(cursoService::getCursoById)
                 .collect(Collectors.toSet());

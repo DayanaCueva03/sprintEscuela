@@ -4,11 +4,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class Usuario {
+public class UsuarioController {
 
     @GetMapping("/")
     public String escuela() {
-        return "index"; // Carga la página principal (index.html)
+        return "index";
     }
 
     @GetMapping("/informacion")

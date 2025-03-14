@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Lista de Cursos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body style="font-family: Arial, sans-serif; background: #f4f4f4; margin: 0; padding: 0;">
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" style="box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Escuela de Conducción Segura</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link active" href="/" th:href="@{/}">Inicio</a></li>
+                <li class="nav-item"><a class="nav-link" th:href="@{/courses}">Cursos</a></li>
+                <li class="nav-item"><a class="nav-link" th:href="@{/cursos}">Agregar Curso</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Main Content -->
+<div style="margin-top: 100px; display: flex; justify-content: center; flex-direction: column; align-items: center; width: 100%;">
+
+    <!-- Title -->
+    <h2 style="color: #333; font-size: 28px; margin-bottom: 20px; font-weight: 600;">Lista de Cursos</h2>
+
+    <!-- Courses Table -->
+    <div style="width: 100%; max-width: 1100px;">
+        <table style="width: 100%; background: white; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); border-radius: 10px; overflow: hidden; border: 1px solid #ddd;">
+            <thead>
+            <tr style="background-color: #007BFF; color: white; text-transform: uppercase;">
+                <th style="padding: 15px; text-align: center;">ID</th>
+                <th style="padding: 15px; text-align: center;">Nombre</th>
+                <th style="padding: 15px; text-align: center;">Descripción</th>
+                <th style="padding: 15px; text-align: center;">Acciones</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="curso : ${cursos}" style="background-color: #f9f9f9; transition: background 0.3s;">
+                <td th:text="${curso.id}" style="padding: 10px; text-align: center;"></td>
+                <td th:text="${curso.nombre}" style="padding: 10px; text-align: center;"></td>
+                <td th:text="${curso.descripcion}" style="padding: 10px; text-align: center;"></td>
+                <td style="padding: 10px; text-align: center;">
+                    <a th:href="@{/cursos/edit/{id}(id=${curso.id})}"
+                       style="display: inline-block; padding: 6px 15px; background-color: #ffc107; color: white; text-decoration: none; font-size: 14px; border-radius: 5px; transition: background-color 0.3s;">
+                        Editar
+                    </a>
+                    <a th:href="@{/cursos/delete/{id}(id=${curso.id})}"
+                       onclick="return confirm('¿Estás seguro de eliminar este curso?');"
+                       style="display: inline-block; padding: 6px 15px; background-color: #dc3545; color: white; text-decoration: none; font-size: 14px; border-radius: 5px; transition: background-color 0.3s;">
+                        Eliminar
+                    </a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Button to Add New Course -->
+    <a href="/cursos/newcurso" style="display: inline-block; margin-top: 30px; padding: 10px 20px; background-color: #28a745; color: white; text-decoration: none; font-size: 16px; border-radius: 5px; transition: background-color 0.3s;">
+        Agregar Nuevo Curso
+    </a>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

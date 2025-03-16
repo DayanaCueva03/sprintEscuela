@@ -11,8 +11,20 @@ public class UsuarioController {
         return "index";
     }
 
+    // Ruta para la página "Sobre Nosotros"
+    @GetMapping("/sobre-nosotros")
+    public String sobreNosotros() {
+        return "VistasPagina/AdicionalVista"; // Vista para "Sobre Nosotros"
+    }
+
+    @GetMapping("/cursosVistas")
+    public String pagescursos() {
+        return "VistasPagina/VistaCurso"; // Vista para "Cursos"
+    }
+
+    // Ruta para la página informativa
     @GetMapping("/informacion")
     public String informacion() {
-        return "pages/vistaInformativa";
+        return "pages/vistaInformativa"; // Vista informativa
     }
 }

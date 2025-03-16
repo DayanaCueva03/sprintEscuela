@@ -66,19 +66,18 @@ public class AlumnoController {
     public String asignarCursos(@PathVariable("id") Long id, Model model) {
         Alumno alumno = alumnoService.getAlumnoById(id);
         if (alumno == null) {
-            return "redirect:/alumnos?error=notfound";
+            return "redirect:/alumnos?error=notfound"; // Redirige si el alumno no existe
         }
         List<Curso> cursosDisponibles = cursoService.getAllCursos();
         model.addAttribute("alumno", alumno);
         model.addAttribute("cursosDisponibles", cursosDisponibles);
-        return "alumnos/asignar-cursos";
+        return "alumnos/asignar-cursos"; // Vista para asignar cursos
     }
-
     @PostMapping("/alumnos/{id}/asignar-cursos")
     public String guardarCursosAsignados(@PathVariable("id") Long id, @RequestParam("cursos") Set<Long> cursoIds) {
         Alumno alumno = alumnoService.getAlumnoById(id);
         if (alumno == null) {
-            return "redirect:/alumnos?error=notfound";
+            return "redirect:/alumnos?error=notfound"; // Redirige si el alumno no existe
         }
         Set<Curso> cursos = cursoIds.stream()
                 .map(cursoService::getCursoById)

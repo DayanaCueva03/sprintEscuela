@@ -3,119 +3,165 @@
 <head>
     <meta charset="UTF-8">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <title>Escuela de Conduccion</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/your-fontawesome-key.js" crossorigin="anonymous"></script>
+    <title>Escuela de Conducción</title>
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav style="background-color:#15803d; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);" class="navbar navbar-expand-lg navbar-dark sticky-top">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">Escuela de Conducción Segura</a>
+        <a style="font-size: 1.5rem; font-weight: bold; color: white;" class="navbar-brand" href="#">Escuela de Conducción Segura</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link active" href="/" th:href="@{/}">Inicio</a></li>
-                <li class="nav-item"><a class="nav-link" href="#sobre-nosotros">Sobre Nosotros</a></li>
-                <li class="nav-item"><a class="nav-link" th:href="@{/courses}">Cursos</a></li>
-                <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
-                <li class="nav-item"><a class="btn btn-success text-white" th:href="@{/login}">Login</a></li>
+                <li class="nav-item"><a style="color: white; transition: color 0.3s;" class="nav-link active hover:text-gray-300" href="/" th:href="@{/}">Inicio</a></li>
+                <li class="nav-item"><a style="color: white; transition: color 0.3s;" class="nav-link hover:text-gray-300" th:href="@{/sobre-nosotros}">Sobre Nosotros</a></li>
+                <li class="nav-item"><a style="color: white; transition: color 0.3s;" class="nav-link hover:text-gray-300" th:href="@{/cursosVistas}">Cursos</a></li>
+                <li class="nav-item"><a style="background-color: #ff7f50; color: white; padding: 0.5rem 1rem; border-radius: 0.5rem; transition: background-color 0.3s;" class="btn hover:bg-orange-700" th:href="@{/login}">Login</a></li>
             </ul>
         </div>
     </div>
 </nav>
 
-<section class="text-center text-white" style="background: linear-gradient(135deg, #ff6f61, #3498db); padding: 100px 20px;">
-    <h1 class="display-4 fw-bold">Bienvenidos a la Escuela de Conducción Segura</h1>
-    <p class="lead">Formamos conductores responsables con más de 10 años de experiencia.</p>
-    <a th:href="@{/courses}" class="btn btn-light btn-lg">Ver Cursos</a>
+<section style="background: linear-gradient(135deg, #ff6f61, #6a11cb); color: white; padding: 100px 20px; animation: fadeIn 1.5s ease-in-out; text-align: center;">
+    <h1 style="font-size: 3rem; font-weight: bold; margin-bottom: 1rem; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);">Bienvenidos a la Escuela de Conducción Segura</h1>
+    <p style="font-size: 1.25rem; margin-top: 0.5rem; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);">Formamos conductores responsables con más de 10 años de experiencia.</p>
+    <a style="background-color: #ff7f50; color: white; padding: 0.75rem 1.5rem; border-radius: 0.5rem; transition: background-color 0.3s; display: block; width: fit-content; margin: auto;" class="btn hover:bg-orange-700 text-decoration-none">Ver Cursos</a>
 </section>
 
-<section class="container py-5" id="sobre-nosotros">
-    <h2 class="text-center mb-5">Sobre Nosotros</h2>
-    <p class="lead text-center">Somos una escuela con más de 10 años de experiencia en la formación de conductores responsables.</p>
-</section>
-
-<section class="container py-5" id="cursos">
-    <h2 class="text-center mb-5">Nuestros Cursos</h2>
-    <div class="row">
-        <div class="col-md-4">
-            <div class="card h-100">
-                <img src="https://via.placeholder.com/300x200" class="card-img-top">
+<section style="padding: 50px 20px; background-color: #ffffff;" id="sobre-nosotros">
+    <h2 style="font-size: 2rem; font-weight: bold; margin-bottom: 2rem; color: #15803d;" class="text-center">Sobre Nosotros</h2>
+    <p style="font-size: 1.25rem; color: #555;" class="lead text-center">Somos una escuela líder en formación vial con más de 10 años de experiencia. Nuestro compromiso es brindar educación de calidad para formar conductores responsables y seguros.</p>
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-4 mb-4">
+            <div style="border: 1px solid #ddd; border-radius: 0.75rem; transition: transform 0.3s, box-shadow 0.3s;" class="card h-100 hover:scale-105 hover:shadow-xl">
+                <img th:src="@{image/equipo.png}" alt="equipo" class="w-full h-full object-cover">
                 <div class="card-body d-flex flex-column">
-                    <h5 class="card-title">Curso Básico</h5>
-                    <p class="card-text flex-grow-1">Aprende lo esencial para empezar a conducir.</p>
-                    <a href="#" class="btn btn-success mt-auto">Ver más</a>
+                    <h5 style="font-size: 1.25rem; font-weight: bold; color: #1e3a8a;" class="card-title">Misión</h5>
+                    <p style="color: #555;" class="card-text flex-grow-1">Nuestra misión es capacitar a los conductores para que sean responsables, seguros y respetuosos con las normas de tránsito.</p>
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
-            <div class="card h-100">
-                <img src="https://via.placeholder.com/300x200" class="card-img-top">
+        <div class="col-md-4 mb-4">
+            <div style="border: 1px solid #ddd; border-radius: 0.75rem; transition: transform 0.3s, box-shadow 0.3s;" class="card h-100 hover:scale-105 hover:shadow-xl">
+                <img th:src="@{image/vision.jpg}" alt="vision" class="w-full h-full object-cover">
                 <div class="card-body d-flex flex-column">
-                    <h5 class="card-title">Curso Avanzado</h5>
-                    <p class="card-text flex-grow-1">Perfecciona tus habilidades al volante.</p>
-                    <a href="#" class="btn btn-success mt-auto">Ver más</a>
+                    <h5 style="font-size: 1.25rem; font-weight: bold; color: #1e3a8a;" class="card-title">Visión</h5>
+                    <p style="color: #555;" class="card-text flex-grow-1">Ser la escuela de conducción más reconocida por su calidad educativa y compromiso con la seguridad vial.</p>
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
-            <div class="card h-100">
-                <img src="https://via.placeholder.com/300x200" class="card-img-top">
+        <div class="col-md-4 mb-4">
+            <div style="border: 1px solid #ddd; border-radius: 0.75rem; transition: transform 0.3s, box-shadow 0.3s;" class="card h-100 hover:scale-105 hover:shadow-xl">
+                <img th:src="@{image/valor.jpg}" alt="valores" class="w-full h-full object-cover">
                 <div class="card-body d-flex flex-column">
-                    <h5 class="card-title">Clases Personalizadas</h5>
-                    <p class="card-text flex-grow-1">Aprende a tu propio ritmo con clases personalizadas.</p>
-                    <a href="#" class="btn btn-success mt-auto">Ver más</a>
+                    <h5 style="font-size: 1.25rem; font-weight: bold; color: #1e3a8a;" class="card-title">Valores</h5>
+                    <p style="color: #555;" class="card-text flex-grow-1">Compromiso, profesionalismo, seguridad y respeto son nuestros pilares fundamentales.</p>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<section class="bg-light py-5" id="testimonios">
-    <div class="container">
-        <h2 class="text-center mb-5">Testimonios</h2>
-        <div class="row">
-            <div class="col-md-4">
-                <div class="card text-center">
-                    <img src="https://via.placeholder.com/100" class="card-img-top rounded-circle mx-auto mt-3" style="width: 100px;">
-                    <div class="card-body">
-                        <p class="card-text">"Gracias a esta escuela, ahora conduzco con confianza." - Juan Pérez</p>
-                    </div>
+<section style="padding: 50px 20px; background-color: #ffffff;" id="cursos">
+    <h2 style="font-size: 2rem; font-weight: bold; margin-bottom: 2rem; color: #15803d;" class="text-center">Nuestros Cursos</h2>
+    <p style="font-size: 1.25rem; color: #555;" class="text-center mb-5">Ofrecemos una amplia variedad de cursos para satisfacer las necesidades de todos los conductores.</p>
+    <div class="row justify-content-center">
+        <div class="col-md-4 mb-4">
+            <div style="border: 1px solid #ddd; border-radius: 0.75rem; transition: transform 0.3s, box-shadow 0.3s;" class="card h-100 hover:scale-105 hover:shadow-xl">
+                <img th:src="@{image/basico.png}" alt="basico" class="w-full h-full object-cover">
+                <div class="card-body d-flex flex-column">
+                    <h5 style="font-size: 1.25rem; font-weight: bold; color: #1e3a8a;" class="card-title">Curso Básico</h5>
+                    <p style="color: #555;" class="card-text flex-grow-1">Aprende lo esencial para empezar a conducir de manera segura y responsable.</p>
+                    <a href="#" style="background-color: #15803d; color: white; padding: 0.5rem 1rem; border-radius: 0.5rem; transition: background-color 0.3s;" class="btn hover:bg-orange-700 mt-auto">Ver más</a>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="card text-center">
-                    <img src="https://via.placeholder.com/100" class="card-img-top rounded-circle mx-auto mt-3" style="width: 100px;">
-                    <div class="card-body">
-                        <p class="card-text">"Los instructores son muy profesionales." - María López</p>
-                    </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div style="border: 1px solid #ddd; border-radius: 0.75rem; transition: transform 0.3s, box-shadow 0.3s;" class="card h-100 hover:scale-105 hover:shadow-xl">
+                <img th:src="@{image/avanzado.jpg}" alt="avanzado" class="w-full h-full object-cover">
+                <div class="card-body d-flex flex-column">
+                    <h5 style="font-size: 1.25rem; font-weight: bold; color: #1e3a8a;" class="card-title">Curso Avanzado</h5>
+                    <p style="color: #555;" class="card-text flex-grow-1">Perfecciona tus habilidades al volante y aprende técnicas avanzadas de conducción.</p>
+                    <a href="#" style="background-color: #15803d; color: white; padding: 0.5rem 1rem; border-radius: 0.5rem; transition: background-color 0.3s;" class="btn hover:bg-orange-700 mt-auto">Ver más</a>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="card text-center">
-                    <img src="https://via.placeholder.com/100" class="card-img-top rounded-circle mx-auto mt-3" style="width: 100px;">
-                    <div class="card-body">
-                        <p class="card-text">"Aprendí a conducir de forma segura y eficiente." - Carlos Gómez</p>
-                    </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div style="border: 1px solid #ddd; border-radius: 0.75rem; transition: transform 0.3s, box-shadow 0.3s;" class="card h-100 hover:scale-105 hover:shadow-xl">
+                <img th:src="@{image/avanzados.jpg}" alt="personalizado" class="w-full h-full object-cover">
+                <div class="card-body d-flex flex-column">
+                    <h5 style="font-size: 1.25rem; font-weight: bold; color: #1e3a8a;" class="card-title">Clases Personalizadas</h5>
+                    <p style="color: #555;" class="card-text flex-grow-1">Aprende a tu propio ritmo con clases adaptadas a tus necesidades específicas.</p>
+                    <a href="#" style="background-color: #15803d; color: white; padding: 0.5rem 1rem; border-radius: 0.5rem; transition: background-color 0.3s;" class="btn hover:bg-orange-700 mt-auto">Ver más</a>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<section class="container py-5" id="contacto">
-    <h2 class="text-center mb-5">Contacto</h2>
-    <p class="text-center">¿Tienes preguntas o deseas más información? Contáctanos:</p>
-    <p class="text-center"><i class="fas fa-envelope me-2"></i>Email: <a href="mailto:contacto@escueladeconduccion.com">contacto@escueladeconduccion.com</a></p>
-    <p class="text-center"><i class="fas fa-phone me-2"></i>Teléfono: 123-456-7890</p>
+<section style="padding: 50px 20px; background-color: #f0f8ff;" id="blog">
+    <h2 style="font-size: 2rem; font-weight: bold; margin-bottom: 2rem; color: #15803d;" class="text-center">Últimas Noticias y Consejos</h2>
+    <p style="font-size: 1.25rem; color: #555;" class="text-center mb-5">Mantente informado con nuestros artículos sobre conducción segura y actualizaciones de la escuela.</p>
+    <div class="row justify-content-center">
+        <div class="col-md-4 mb-4">
+            <div style="border: 1px solid #ddd; border-radius: 0.75rem; transition: transform 0.3s, box-shadow 0.3s;" class="card h-100 hover:scale-105 hover:shadow-xl">
+                <img th:src="@{image/images.jpg}" alt="noticia" class="w-full h-full object-cover">
+                <div class="card-body d-flex flex-column">
+                    <h5 style="font-size: 1.25rem; font-weight: bold; color: #1e3a8a;" class="card-title">Consejos para conducir bajo la lluvia</h5>
+                    <p style="color: #555;" class="card-text flex-grow-1">Aprende cómo mantenerte seguro mientras conduces en condiciones climáticas adversas.</p>
+                    <a href="#" style="background-color: #15803d; color: white; padding: 0.5rem 1rem; border-radius: 0.5rem; transition: background-color 0.3s;" class="btn hover:bg-orange-700 mt-auto">Leer más</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div style="border: 1px solid #ddd; border-radius: 0.75rem; transition: transform 0.3s, box-shadow 0.3s;" class="card h-100 hover:scale-105 hover:shadow-xl">
+                <img th:src="@{image/chica.jpg}" alt="chico" class="w-full h-full object-cover">
+                <div class="card-body d-flex flex-column">
+                    <h5 style="font-size: 1.25rem; font-weight: bold; color: #1e3a8a;" class="card-title">Beneficios de tomar clases personalizadas</h5>
+                    <p style="color: #555;" class="card-text flex-grow-1">Descubre cómo las clases adaptadas a tus necesidades pueden mejorar tu aprendizaje.</p>
+                    <a href="#" style="background-color: #15803d; color: white; padding: 0.5rem 1rem; border-radius: 0.5rem; transition: background-color 0.3s;" class="btn hover:bg-orange-700 mt-auto">Leer más</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div style="border: 1px solid #ddd; border-radius: 0.75rem; transition: transform 0.3s, box-shadow 0.3s;" class="card h-100 hover:scale-105 hover:shadow-xl">
+                <img th:src="@{image/precios.jpg}" alt="equipo" class="w-full h-full object-cover">
+                <div class="card-body d-flex flex-column">
+                    <h5 style="font-size: 1.25rem; font-weight: bold; color: #1e3a8a;" class="card-title">Actualización de horarios de atención</h5>
+                    <p style="color: #555;" class="card-text flex-grow-1">Conoce los nuevos horarios de atención en nuestra escuela para mayor comodidad.</p>
+                    <a href="#" style="background-color: #15803d; color: white; padding: 0.5rem 1rem; border-radius: 0.5rem; transition: background-color 0.3s;" class="btn hover:bg-orange-700 mt-auto">Leer más</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 
-<footer class="text-center py-4 bg-dark text-white">
-    <p>&copy; 2025 Escuela de Conducción Segura. Todos los derechos reservados.</p>
+<section style="padding: 50px 20px; background-color: #f8f9fa;" id="contacto">
+    <h2 style="font-size: 2rem; font-weight: bold; margin-bottom: 2rem; color: #1e3a8a;" class="text-center">Contacto</h2>
+    <p style="font-size: 1.25rem; color: #555;" class="text-center">¿Tienes preguntas o deseas más información? Contáctanos:</p>
+    <p style="font-size: 1rem; color: #555;" class="text-center"><i class="fas fa-envelope me-2"></i>Email: <a style="color: #ff7f50; transition: color 0.3s;" class="hover:text-orange-700" href="mailto:contacto@escueladeconduccion.com">contacto@escueladeconduccion.com</a></p>
+    <p style="font-size: 1rem; color: #555;" class="text-center"><i class="fas fa-phone me-2"></i>Teléfono: 123-456-7890</p>
+    <p style="font-size: 1rem; color: #555;" class="text-center"><i class="fas fa-map-marker-alt me-2"></i>Dirección: Calle Principal #123, Ciudad</p>
+</section>
+
+<footer style="background-color: #15803d; color: white; padding: 20px 0; box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.1);">
+    <p style="font-size: 1rem;" class="text-center">&copy; 2025 Escuela de Conducción Segura. Todos los derechos reservados.</p>
 </footer>
 
+<style>
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+    .hover\:text-gray-300:hover { color: #d1d5db; }
+    .hover\:bg-orange-700:hover { background-color: #ff4500; }
+    .hover\:scale-105:hover { transform: scale(1.05); }
+    .hover\:shadow-xl:hover { box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2); }
+</style>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

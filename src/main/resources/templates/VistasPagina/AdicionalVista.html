@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Nosotros - Escuela de Conducción Segura</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.x.x/dist/alpine.min.js" defer></script>
+</head>
+<body >
+<!-- Navbar usando solo Tailwind CSS -->
+<nav class="bg-green-600 shadow-lg">
+    <div class="container mx-auto flex justify-between items-center py-4">
+        <a class="text-white text-2xl font-bold" href="#">Escuela de Conducción Segura</a>
+        <div class="flex space-x-6">
+            <a class="nav-item"><a style="color: white; transition: color 0.3s;" class="nav-link active hover:text-gray-300" href="/" th:href="@{/}">Inicio</a>
+            <a class="text-white hover:text-green-300" th:href="@{/sobre-nosotros}">Sobre Nosotros</a>
+            <a class="text-white hover:text-green-300" th:href="@{/cursosVistas}">Cursos</a>
+            <a class="bg-green-700 text-white py-2 px-4 rounded-lg hover:bg-green-800 transition-colors" style="background-color: #ff7f50; " th:href="@{/login}">Login</a>
+        </div>
+    </div>
+</nav>
+
+
+<header style="background: url('/image/equipo.png') center/cover no-repeat; color: white; padding: 3rem 0; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);">
+    <div class="container mx-auto text-center" style="background: rgba(0, 0, 0, 0.5); padding: 2rem; border-radius: 0.5rem; display: flex; flex-direction: column; align-items: center;">
+        <h1 style="font-size: 3rem; font-weight: bold; margin-bottom: 1rem; animation: fadeIn 1.5s ease-in-out;">Escuela de Conducción Segura</h1>
+        <p style="font-size: 1.25rem; margin-top: 0.5rem; animation: slideUp 1s ease-in-out;">¡Tu camino hacia una conducción responsable comienza aquí!</p>
+        <img th:src="@{/image/equipo.png}" alt="equipo" style="margin-top: 1.5rem; max-width: 100%; height: auto; border-radius: 0.5rem; display: block;">
+    </div>
+</header>
+
+<main class="container mx-auto py-12 px-6 space-y-12">
+
+    <section style="background-color: white; padding: 2.5rem; border-radius: 0.75rem; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);">
+        <h2 style="font-size: 2.5rem; font-weight: bold; color: #15803d; text-align: center; margin-bottom: 1.5rem;">¿Por qué elegirnos?</h2>
+        <p style="color: #374151; text-align: center; font-size: 1.2rem; margin-bottom: 2rem;">
+            En nuestra escuela, ofrecemos formación de calidad con instructores expertos y métodos modernos para garantizar tu aprendizaje seguro y eficaz.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            <div style="background-color: #ecfdf5; padding: 2rem; border-radius: 0.75rem; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); transition: transform 0.3s, box-shadow 0.3s;" class="hover:shadow-xl hover:scale-105">
+                <h3 style="font-size: 1.5rem; font-weight: bold; color: #15803d; display: flex; align-items: center;">
+                    ✅ Clases Personalizadas
+                </h3>
+                <p style="color: #065f46; margin-top: 0.5rem; font-size: 1.1rem;">
+                    Adaptamos nuestras clases a tu nivel, asegurando una enseñanza personalizada y efectiva.
+                </p>
+            </div>
+
+            <div style="background-color: #ecfdf5; padding: 2rem; border-radius: 0.75rem; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); transition: transform 0.3s, box-shadow 0.3s;" class="hover:shadow-xl hover:scale-105">
+                <h3 style="font-size: 1.5rem; font-weight: bold; color: #15803d; display: flex; align-items: center;">
+                    ✅ Prácticas en Circuitos Seguros
+                </h3>
+                <p style="color: #065f46; margin-top: 0.5rem; font-size: 1.1rem;">
+                    Simulamos situaciones reales en zonas controladas para garantizar tu seguridad.
+                </p>
+            </div>
+
+            <div style="background-color: #ecfdf5; padding: 2rem; border-radius: 0.75rem; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); transition: transform 0.3s, box-shadow 0.3s;" class="hover:shadow-xl hover:scale-105">
+                <h3 style="font-size: 1.5rem; font-weight: bold; color: #15803d; display: flex; align-items: center;">
+                    ✅ Certificación Oficial
+                </h3>
+                <p style="color: #065f46; margin-top: 0.5rem; font-size: 1.1rem;">
+                    Te preparamos para el examen de licencia y emitimos certificaciones oficiales.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section style="background-color: #ecfdf5; padding: 3rem; border-radius: 0.75rem; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);">
+        <h2 style="font-size: 2.5rem; font-weight: bold; color: #15803d; text-align: center; margin-bottom: 1.5rem; animation: fadeIn 1.5s ease-in-out;">
+            🚗 Nuestros Instructores
+        </h2>
+        <p style="color: #374151; text-align: center; font-size: 1.2rem; margin-bottom: 2rem; animation: slideUp 1s ease-in-out;">
+            Un equipo altamente capacitado, apasionado por la enseñanza y comprometido con tu éxito en la conducción.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            <div style="background-color: white; padding: 2rem; border-radius: 1rem; box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1); transition: transform 0.3s, box-shadow 0.3s;"
+                 class="hover:shadow-2xl hover:scale-105">
+                <img th:src="@{image/el.jpg}" alt="Instructor 1"
+                     style="border-radius: 50%; width: 120px; height: 120px; object-fit: cover; margin: 0 auto; border: 4px solid #15803d;">
+                <h3 style="font-size: 1.5rem; font-weight: bold; color: #15803d; text-align: center; margin-top: 1rem;">
+                    Carlos López
+                </h3>
+                <p style="color: #065f46; text-align: center; font-size: 1.1rem;">
+                    🏆 10 años de experiencia formando conductores seguros.
+                </p>
+                <div style="text-align: center; margin-top: 1rem;">
+                    <button style="background-color: #15803d; color: white; padding: 0.5rem 1.5rem; border-radius: 0.5rem; font-size: 1rem; font-weight: bold; transition: background 0.3s;"
+                            class="hover:bg-green-700">
+                        Ver más
+                    </button>
+                </div>
+            </div>
+
+            <div style="background-color: white; padding: 2rem; border-radius: 1rem; box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1); transition: transform 0.3s, box-shadow 0.3s;"
+                 class="hover:shadow-2xl hover:scale-105">
+                <img th:src="@{image/chica.jpg}" alt="Instructor 2"
+                     style="border-radius: 50%; width: 120px; height: 120px; object-fit: cover; margin: 0 auto; border: 4px solid #15803d;">
+                <h3 style="font-size: 1.5rem; font-weight: bold; color: #15803d; text-align: center; margin-top: 1rem;">
+                    María Torres
+                </h3>
+                <p style="color: #065f46; text-align: center; font-size: 1.1rem;">
+                    🚦 Especialista en conducción defensiva y técnicas avanzadas.
+                </p>
+                <div style="text-align: center; margin-top: 1rem;">
+                    <button style="background-color: #15803d; color: white; padding: 0.5rem 1.5rem; border-radius: 0.5rem; font-size: 1rem; font-weight: bold; transition: background 0.3s;"
+                            class="hover:bg-green-700">
+                        Ver más
+                    </button>
+                </div>
+            </div>
+
+            <div style="background-color: white; padding: 2rem; border-radius: 1rem; box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1); transition: transform 0.3s, box-shadow 0.3s;"
+                 class="hover:shadow-2xl hover:scale-105">
+                <img th:src="@{image/profe.jpg}" alt="Instructor 3"
+                     style="border-radius: 50%; width: 120px; height: 120px; object-fit: cover; object-position: top; margin: 0 auto; border: 4px solid #15803d;">
+                <h3 style="font-size: 1.5rem; font-weight: bold; color: #15803d; text-align: center; margin-top: 1rem;">
+                    Javier Ramírez
+                </h3>
+                <p style="color: #065f46; text-align: center; font-size: 1.1rem;">
+                    🌧️ Experto en manejo en condiciones adversas y seguridad vial.
+                </p>
+                <div style="text-align: center; margin-top: 1rem;">
+                    <button style="background-color: #15803d; color: white; padding: 0.5rem 1.5rem; border-radius: 0.5rem; font-size: 1rem; font-weight: bold; transition: background 0.3s;"
+                            class="hover:bg-green-700">
+                        Ver más
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+    </style>
+
+    <section style="background-color: #f0fdf4; padding: 3rem; border-radius: 1rem; box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1); text-align: center; position: relative;">
+        <h2 style="font-size: 2.5rem; font-weight: bold; color: #15803d; margin-bottom: 1.5rem; animation: fadeIn 1.5s ease-in-out;">
+            ⭐ Lo que dicen nuestros alumnos ⭐
+        </h2>
+        <p style="color: #374151; font-size: 1.2rem; margin-bottom: 2rem; animation: slideUp 1s ease-in-out;">
+            Conoce las experiencias de quienes han confiado en nosotros y alcanzaron su meta. ¡Tú también puedes lograrlo!
+        </p>
+
+        <div class="flex overflow-x-auto space-x-6 snap-x snap-mandatory scrollbar-hide px-4 py-2">
+            <div style="background-color: white; padding: 2rem; border-radius: 1rem; box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1); flex: 0 0 auto; min-width: 300px; max-width: 350px; transition: transform 0.3s, box-shadow 0.3s;"
+                 class="snap-center hover:shadow-2xl hover:scale-105">
+                <p style="color: #065f46; font-style: italic; font-size: 1.1rem;">
+                    "¡Increíble experiencia! Aprendí más de lo que imaginaba, y los instructores fueron muy pacientes y profesionales. ¡Totalmente recomendado!"
+                </p>
+                <div style="margin-top: 1rem; text-align: center;">
+                    <img th:src="@{image/juan.png}" alt="Juan Pérez"
+                         style="border-radius: 50%; width: 80px; height: 80px; object-fit: cover; border: 3px solid #15803d;">
+                    <p style="color: #1e40af; font-weight: bold; margin-top: 0.5rem;">Juan Pérez</p>
+                </div>
+            </div>
+
+            <div style="background-color: white; padding: 2rem; border-radius: 1rem; box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1); flex: 0 0 auto; min-width: 300px; max-width: 350px; transition: transform 0.3s, box-shadow 0.3s;"
+                 class="snap-center hover:shadow-2xl hover:scale-105">
+                <p style="color: #065f46; font-style: italic; font-size: 1.1rem;">
+                    "Gracias a esta escuela obtuve mi licencia sin problemas. Me sentí segura y bien preparada en cada práctica. ¡Muy recomendado!"
+                </p>
+                <div style="margin-top: 1rem; text-align: center;">
+                    <img th:src="@{image/estudiante.png}" alt="María López"
+                         style="border-radius: 50%; width: 80px; height: 80px; object-fit: cover; border: 3px solid #15803d;">
+                    <p style="color: #1e40af; font-weight: bold; margin-top: 0.5rem;">María López</p>
+                </div>
+            </div>
+
+            <div style="background-color: white; padding: 2rem; border-radius: 1rem; box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1); flex: 0 0 auto; min-width: 300px; max-width: 350px; transition: transform 0.3s, box-shadow 0.3s;"
+                 class="snap-center hover:shadow-2xl hover:scale-105">
+                <p style="color: #065f46; font-style: italic; font-size: 1.1rem;">
+                    "El curso me ayudó a mejorar mi confianza al volante. Ahora manejo con seguridad en cualquier situación. ¡Muy agradecida!"
+                </p>
+                <div style="margin-top: 1rem; text-align: center;">
+                    <img th:src="@{image/maria.png}" alt="Ana Gómez"
+                         style="border-radius: 50%; width: 80px; height: 80px; object-fit: cover; border: 3px solid #15803d;">
+                    <p style="color: #1e40af; font-weight: bold; margin-top: 0.5rem;">Ana Gómez</p>
+                </div>
+            </div>
+
+            <div style="background-color: white; padding: 2rem; border-radius: 1rem; box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1); flex: 0 0 auto; min-width: 300px; max-width: 350px; transition: transform 0.3s, box-shadow 0.3s;"
+                 class="snap-center hover:shadow-2xl hover:scale-105">
+                <p style="color: #065f46; font-style: italic; font-size: 1.1rem;">
+                    "Los simulacros y la práctica real hicieron una gran diferencia en mi aprendizaje. ¡Definitivamente una gran decisión inscribirme aquí!"
+                </p>
+                <div style="margin-top: 1rem; text-align: center;">
+                    <img th:src="@{image/torres.png}" alt="Carlos Mendoza"
+                         style="border-radius: 50%; width: 80px; height: 80px; object-fit: cover; border: 3px solid #15803d;">
+                    <p style="color: #1e40af; font-weight: bold; margin-top: 0.5rem;">Carlos Mendoza</p>
+                </div>
+            </div>
+        </div>
+
+        <button style="position: absolute; top: 50%; left: 0; transform: translateY(-50%); background-color: #15803d; color: white; border: none; padding: 0.5rem 1rem; border-radius: 50%; cursor: pointer; font-size: 1.5rem; transition: background 0.3s;"
+                class="hover:bg-green-700" onclick="scrollTestimonios(-300)">
+            ◀
+        </button>
+
+        <button style="position: absolute; top: 50%; right: 0; transform: translateY(-50%); background-color: #15803d; color: white; border: none; padding: 0.5rem 1rem; border-radius: 50%; cursor: pointer; font-size: 1.5rem; transition: background 0.3s;"
+                class="hover:bg-green-700" onclick="scrollTestimonios(300)">
+            ▶
+        </button>
+    </section>
+
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+
+    <script>
+        function scrollTestimonios(scrollOffset) {
+            document.querySelector('.overflow-x-auto').scrollBy({ left: scrollOffset, behavior: 'smooth' });
+        }
+    </script>
+
+
+    <section id="contacto" style="background-color: #f9fafb; padding: 4rem 2rem; border-radius: 1rem; box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1); position: relative;">
+        <h2 style="font-size: 2.5rem; font-weight: bold; color: #1e40af; text-align: center; margin-bottom: 2rem; animation: fadeIn 1.5s ease-in-out;">
+            📬 Contáctenos
+        </h2>
+        <p style="font-size: 1.2rem; color: #374151; text-align: center; margin-bottom: 2rem; animation: slideUp 1s ease-in-out;">
+            ¿Tienes alguna duda o pregunta? ¡Estamos aquí para ayudarte!.
+        </p>
+
+        <div style="margin-top: 3rem; border-radius: 1rem; overflow: hidden; box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3900.892791451503!2d-77.03653098517614!3d-12.046393491426674!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c9a5e8b1b37f%3A0x25f9b0c7bddd8f86!2sPlaza%20Mayor%20de%20Lima!5e0!3m2!1ses!2spe!4v1698777720000!5m2!1ses!2spe" style="width: 100%; height: 400px; border: 0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </section>
+
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Estilos para la mejora del formulario */
+        input, textarea, button {
+            font-family: 'Arial', sans-serif;
+        }
+
+        input:focus, textarea:focus {
+            border-color: #1e40af;
+            outline: none;
+        }
+    </style>
+
+    <script>
+        // Animación de desplazamiento para los formularios
+        const inputs = document.querySelectorAll('input, textarea');
+        inputs.forEach(input => {
+            input.addEventListener('focus', () => {
+                input.style.boxShadow = '0 0 10px rgba(30, 64, 175, 0.3)';
+            });
+            input.addEventListener('blur', () => {
+                input.style.boxShadow = 'none';
+            });
+        });
+    </script>
+
+
+</main>
+
+<footer style="background-color: #15803d; color: white; padding: 20px 0; box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.1);">
+    <p style="font-size: 1rem;" class="text-center">&copy; 2025 Escuela de Conducción Segura. Todos los derechos reservados.</p>
+</footer>
+
+
+<style>
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+    @keyframes slideUp {
+        from { transform: translateY(20px); opacity: 0; }
+        to { transform: translateY(0); opacity: 1; }
+    }
+</style>
+
+</body>
+</html>

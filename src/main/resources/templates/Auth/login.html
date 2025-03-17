@@ -7,13 +7,13 @@
 <body style="display: flex; justify-content: center; align-items: center; height: 100vh; background: linear-gradient(135deg, #4b79a1, #283e51); font-family: Arial, sans-serif; margin: 0;">
 <div style="text-align: center; background: rgba(255, 255, 255, 0.1); padding: 30px; border-radius: 10px; backdrop-filter: blur(10px); box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); width: 300px; animation: fadeIn 1s ease-in-out;">
 
-    <form class="form">
+    <form class="form" th:action="@{/login}" method="post" th:object="${login}">
         <div class="flex-column" style="margin-bottom: 10px;">
             <label style="color: white; font-size: 16px; font-weight: bold;">Correo Electrónico</label>
         </div>
         <div class="inputForm" style="display: flex; align-items: center; background: rgba(255, 255, 255, 0.2); padding: 10px; border-radius: 5px; margin-bottom: 15px;">
             <svg height="20" viewBox="0 0 32 32" width="20" xmlns="http://www.w3.org/2000/svg" style="fill: white; margin-right: 10px;"><g id="Layer_3" data-name="Layer 3"><path d="m30.853 13.87a15 15 0 0 0 -29.729 4.082 15.1 15.1 0 0 0 12.876 12.918 15.6 15.6 0 0 0 2.016.13 14.85 14.85 0 0 0 7.715-2.145 1 1 0 1 0 -1.031-1.711 13.007 13.007 0 1 1 5.458-6.529 2.149 2.149 0 0 1 -4.158-.759v-10.856a1 1 0 0 0 -2 0v1.726a8 8 0 1 0 .2 10.325 4.135 4.135 0 0 0 7.83.274 15.2 15.2 0 0 0 .823-7.455zm-14.853 8.13a6 6 0 1 1 6-6 6.006 6.006 0 0 1 -6 6z"></path></g></svg>
-            <input type="text" class="input" placeholder="Ingrese su correo" style="border: none; background: transparent; outline: none; color: white; font-size: 14px; width: 100%;">
+            <input type="text" class="input" placeholder="Ingrese su Usuario" style="border: none; background: transparent; outline: none; color: white; font-size: 14px; width: 100%;" th:field="*{username}">
         </div>
 
         <div class="flex-column" style="margin-bottom: 10px;">
@@ -21,9 +21,12 @@
         </div>
         <div class="inputForm" style="display: flex; align-items: center; background: rgba(255, 255, 255, 0.2); padding: 10px; border-radius: 5px; margin-bottom: 15px;">
             <svg height="20" viewBox="-64 0 512 512" width="20" xmlns="http://www.w3.org/2000/svg" style="fill: white; margin-right: 10px;"><path d="m336 512h-288c-26.453125 0-48-21.523438-48-48v-224c0-26.476562 21.546875-48 48-48h288c26.453125 0 48 21.523438 48 48v224c0 26.476562-21.546875 48-48 48zm-288-288c-8.8125 0-16 7.167969-16 16v224c0 8.832031 7.1875 16 16 16h288c8.8125 0 16-7.167969 16-16v-224c0-8.832031-7.1875-16-16-16zm0 0"></path></svg>
-            <input type="password" class="input" placeholder="Ingrese su contraseña" style="border: none; background: transparent; outline: none; color: white; font-size: 14px; width: 100%;">
+            <input type="password" class="input" placeholder="Ingrese su contraseña" style="border: none; background: transparent; outline: none; color: white; font-size: 14px; width: 100%;" th:field="*{password}">
         </div>
 
+        <div th:if="${param.error}" class="error-message">
+            Usuario y/o contraseña incorrectos.
+        </div>
 
 
         <button  class="button-submit" style="display: block; background: #ff7b00; color: white; text-decoration: none; padding: 10px; border-radius: 5px; text-align: center; font-weight: bold; transition: background 0.3s;">

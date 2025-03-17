@@ -1,7 +1,6 @@
 package com.modulo.tallerPracticoModulo.Entidad;
 
 
-import com.modulo.tallerPracticoModulo.roles.Roles;
 import jakarta.persistence.*;
 
 import java.util.Set;
@@ -20,11 +19,11 @@ public class Usuario {
     @Column(nullable = false)
     private String email;
 
-    @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
-    private Roles roles;
+    @ElementCollection(fetch = FetchType.EAGER)
+    @CollectionTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id"))
+    @Column(name = "role")
+    private Set<String> roles;
 
-//getters y setters
 
     public Long getId() {
         return id;
@@ -50,19 +49,19 @@ public class Usuario {
         this.password = password;
     }
 
-    public Roles getRoles() {
-        return roles;
-    }
-
-    public void setRoles(Roles roles) {
-        this.roles = roles;
-    }
-
     public String getEmail() {
         return email;
     }
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public Set<String> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<String> roles) {
+        this.roles = roles;
     }
 }

@@ -31,7 +31,7 @@ public class AlumnoController {
     @GetMapping("/new")
     public String newAlumno(Model model) {
         model.addAttribute("alumno", new Alumno());
-        return "alumnos/new";
+        return "Alumnos/new";
     }
     @PostMapping("/save")
     public String saveAlumno(@ModelAttribute("alumno") Alumno alumno) {
@@ -62,7 +62,7 @@ public class AlumnoController {
         return "redirect:/alumnos";
     }
 
-    @GetMapping("/alumnos/{id}/asignar-cursos")
+    @GetMapping("/{id}/asignar-cursos")
     public String asignarCursos(@PathVariable("id") Long id, Model model) {
         Alumno alumno = alumnoService.getAlumnoById(id);
         if (alumno == null) {
@@ -71,9 +71,11 @@ public class AlumnoController {
         List<Curso> cursosDisponibles = cursoService.getAllCursos();
         model.addAttribute("alumno", alumno);
         model.addAttribute("cursosDisponibles", cursosDisponibles);
-        return "alumnos/asignar-cursos"; // Vista para asignar cursos
+        return "Alumnos/asignar-cursos"; // Vista para asignar cursos
     }
-    @PostMapping("/alumnos/{id}/asignar-cursos")
+
+
+    @PostMapping("/{id}/asignar-cursos")
     public String guardarCursosAsignados(@PathVariable("id") Long id, @RequestParam("cursos") Set<Long> cursoIds) {
         Alumno alumno = alumnoService.getAlumnoById(id);
         if (alumno == null) {

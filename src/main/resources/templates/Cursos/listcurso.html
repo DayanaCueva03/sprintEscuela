@@ -16,11 +16,21 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item"><a class="nav-link active" href="/" th:href="@{/}">Inicio</a></li>
-                <li class="nav-item"><a class="nav-link" th:href="@{/courses}">Cursos</a></li>
-                <li class="nav-item"><a class="nav-link" th:href="@{/cursos}">Agregar Curso</a></li>
+                <li class="nav-item"><a class="nav-link" th:href="@{/alumnos}">Alumnos</a></li>
             </ul>
         </div>
     </div>
+
+    <form th:action="@{/logout}" method="post" class="inline" style="padding-right: 9px">
+        <button type="submit" class="text-white hover:text-blue-300 transition-colors duration-200"
+                style="outline: none; cursor: pointer; border: none; padding: 4px; margin: 0; font-family: inherit; font-size: inherit; position: relative; display: inline-block; letter-spacing: 0.05rem; font-weight: 700; font-size: 12px; border-radius: 500px; overflow: hidden; background: #66ff66; color: ghostwhite;">
+        <span style="position: relative; z-index: 10; transition: color 0.4s;">
+            <i class="fas fa-sign-out-alt"></i> Cerrar sesión
+        </span>
+            <span style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; content: ''; background: #000; width: 120%; left: -10%; transform: skew(30deg); transition: transform 0.4s cubic-bezier(0.3, 1, 0.8, 1);"></span>
+        </button>
+    </form>
+
 </nav>
 
 <!-- Main Content -->

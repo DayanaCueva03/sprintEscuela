@@ -22,14 +22,21 @@ public class SecurityConfig {
     private UsuarioService usuarioService;
 
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+    public SecurityFilterChain securityFilterChain(HttpSecurity http , Acceso acceso) throws Exception {
         http
-                .authorizeHttpRequests(authorize -> authorize
-                        .anyRequest().permitAll() // Permitir acceso a todas las rutas sin autenticación
+                .authorizeHttpRequests(auth -> auth
+                        .requestMatchers("/alumnos/**","/cursos/**").hasAuthority("ROLE_ADMIN")
+                        .requestMatchers("/AlumnoCurso/**").hasAnyAuthority("ROLE_USER", "ROLE_ADMIN")
+                        .requestMatchers("/**","/index").permitAll()
+                        .anyRequest().authenticated()// Permitir acceso a todas las rutas sin autenticación
                 )
-                .csrf(csrf -> csrf.disable()) // Desactiva CSRF temporalmente si es necesario
-                .formLogin(form -> form.disable()) // Desactiva el login
-                .logout(logout -> logout.disable()); // Desactiva el logout
+                .formLogin(form -> form
+                        .loginPage("/login")
+                        .successHandler(acceso)
+                        .permitAll()) // Desactiva el login
+                .logout(logout -> logout
+                        .logoutUrl("/logout")
+                        .logoutSuccessUrl("/login")); // Desactiva el logout
 
         return http.build();
     }
@@ -37,15 +44,11 @@ public class SecurityConfig {
     // Configuración del codificador de contraseñas
     @Bean
     public PasswordEncoder passwordEncoder() {
+
         return new BCryptPasswordEncoder();
     }
 
 
-    @Bean
-    public AuthenticationProvider authenticationProvider() {
-        DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
-        provider.setUserDetailsService(usuarioService); // Usa el servicio de usuario para cargar detalles del usuario
-        provider.setPasswordEncoder(passwordEncoder()); // Usa el codificador de contraseñas
-        return provider;
-    }
+
+
 }

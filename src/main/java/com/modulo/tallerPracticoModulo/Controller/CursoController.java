@@ -14,7 +14,13 @@ public class CursoController {
     @Autowired
     private CursoService cursoService;
 
-    @GetMapping
+    @GetMapping("")
+    public String redirectToListaCursos() {
+        return "redirect:/cursos/listaCursos";
+    }
+
+
+    @GetMapping("/listaCursos")
     public String listCursos(Model model) {
         model.addAttribute("cursos", cursoService.getAllCursos());
         return "cursos/listcurso";
